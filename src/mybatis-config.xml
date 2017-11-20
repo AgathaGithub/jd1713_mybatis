@@ -2,73 +2,60 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<!-- 用来定义变量(变量名和变量值) 
-	注意：外部文件变量的优先级高于该文件定义的变量-->
+	<!-- 用来定义变量(变量名和变量值) 注意：外部文件变量的优先级高于该文件定义的变量 -->
 	<properties resource="db.properties">
-		<!-- <property name="driver" 
-			value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="url" 
-			value="jdbc:oracle:thin:@127.0.0.1:1521:XE"/>
-		<property name="name" value="briup"/>
-		<property name="pwd" value="briup"/> -->
-		<property name="name" value="test"/>
+		<!-- <property name="driver" value="oracle.jdbc.driver.OracleDriver"/> 
+			<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:XE"/> <property 
+			name="name" value="briup"/> <property name="pwd" value="briup"/> -->
+		<!-- <property name="name" value="test"/> -->
 	</properties>
 
 	<!-- 定义全局参数，默认情况下采用默认值 -->
-	<settings>
-		 <setting name="logPrefix"
-		 		  value="张三  登录：" /> 
-	</settings>
+	<!-- <settings> -->
+	<!-- <setting name="logPrefix" value="张三 登录：" /> -->
+	<!-- <setting name="cacheEnabled" value="true"/> -->
+	<!-- </settings> -->
 
 	<!-- 定义类型别名 -->
 	<typeAliases>
-		<!--  <typeAlias type="com.briup.pojo.Student" 
-				   alias="Student" /> 
-		  <typeAlias type="com.briup.pojo.Teacher" 
-				   alias="Teacher" /> -->
-		  <!-- 会自动扫描该包，先判断是否给该包中类
-		  使用注解的方式取别名，就以注解的别名为准，
-		  否则就会给该包中类取一个
-		  默认的别名，默认别名就是类名 -->
-		  <package name="com.briup.pojo"/> 
+		<!-- <typeAlias type="com.briup.pojo.Student" alias="Student" /> <typeAlias 
+			type="com.briup.pojo.Teacher" alias="Teacher" /> -->
+		<!-- 会自动扫描该包，先判断是否给该包中类 使用注解的方式取别名，就以注解的别名为准， 否则就会给该包中类取一个 默认的别名，默认别名就是类名 -->
+		<package name="com.briup.pojo" />
 	</typeAliases>
 
 	<!-- 注册类型处理器 -->
-	<typeHandlers>
-		<typeHandler 
-	     handler="com.briup.handlers.PhoneHandler"/>
-	</typeHandlers>
-	
+	<!-- <typeHandlers> -->
+	<!-- <typeHandler -->
+	<!-- handler="com.briup.handlers.PhoneHandler"/> -->
+	<!-- </typeHandlers> -->
+
 	<!-- 定义当前数据库使用的环境 -->
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC"></transactionManager>
 			<dataSource type="POOLED">
-				<property name="driver" 
-					 value="${driver}" /> 
-				<property name="url"
-					 value="${url}" /> 
-				<property name="username"
-					 value="${name}" />
-				<property name="password"
-				     value="${pwd}" />
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${name}" />
+				<property name="password" value="${pwd}" />
 			</dataSource>
 		</environment>
-		<environment id="TEST">
-			<transactionManager type=""></transactionManager>
-			<dataSource type="">
-			</dataSource>
-		</environment>
-		<environment id="PRODUCTION">
-			<transactionManager type=""></transactionManager>
-			<dataSource type=""></dataSource>
-		</environment>
+		<!-- <environment id="TEST"> -->
+		<!-- <transactionManager type=""></transactionManager> -->
+		<!-- <dataSource type=""> -->
+		<!-- </dataSource> -->
+		<!-- </environment> -->
+		<!-- <environment id="PRODUCTION"> -->
+		<!-- <transactionManager type=""></transactionManager> -->
+		<!-- <dataSource type=""></dataSource> -->
+		<!-- </environment> -->
 	</environments>
-	
+
 	<!-- 定义映射文件的路径 -->
 	<mappers>
 		<!-- <mapper resource="com/briup/mappers/StudentMapper.xml"/> -->
-		<package name="com.briup/mappers"/>
+		<mapper resource="com/briup/mappers/StudentMapper.xml" />
 	</mappers>
-	
+
 </configuration>

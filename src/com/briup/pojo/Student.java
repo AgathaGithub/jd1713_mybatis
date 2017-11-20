@@ -4,29 +4,12 @@ import java.util.Date;
 import org.apache.ibatis.type.Alias;
 //pojo类----数据库中的表映射
 //使用注解的方式取别名，该别名叫Stu
-@Alias("Stu")
+//@Alias("Stu")
 public class Student {
 	private Integer stuId;
 	private String name;
 	private String email;
 	private Date dob;
-	private PhoneNumber phone;
-	
-	public Student(){}
-	public Student(Integer stuId, String name, String email, Date dob) {
-		this.stuId = stuId;
-		this.name = name;
-		this.email = email;
-		this.dob = dob;
-	}
-	public Student(Integer stuId, String name, String email, Date dob,
-			PhoneNumber phone) {
-		this.stuId = stuId;
-		this.name = name;
-		this.email = email;
-		this.dob = dob;
-		this.phone = phone;
-	}
 	public Integer getStuId() {
 		return stuId;
 	}
@@ -51,16 +34,16 @@ public class Student {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	
-	public PhoneNumber getPhone() {
-		return phone;
-	}
-	public void setPhone(PhoneNumber phone) {
-		this.phone = phone;
+	public Student() {}
+	public Student(Integer stuId, String name, String email, Date dob) {
+		super();
+		this.stuId = stuId;
+		this.name = name;
+		this.email = email;
+		this.dob = dob;
 	}
 	@Override
 	public String toString() {
-		return "Student [stuId=" + stuId + ", name=" + name + ", email="
-				+ email + ", dob=" + dob + ", phone=" + phone + "]";
-	}
+		return "Student [stuId=" + stuId + ", name=" + name + ", email=" + email + ", dob=" + dob + "]";
+	}	
 }
